@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Charging Only Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="logo.png" />
+    <meta property="og:title" content="The Charging Only Website">
+    <meta property="og:description" content="Chào bố là Kiệt đây">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Charging Only Website">
+    <meta name="twitter:description" content="Chào bố là Kiệt đây">
+    <meta name="twitter:image" content="logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #chat-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #status-message {
+            color: red;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>Charging-Only Chat</h1>
+        <p id="status-message">Checking charging status...</p>
+        <iframe id="chat-frame" src="https://charging-only.chatango.com" allow="microphone; camera"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusMessage = document.getElementById('status-message');
+            const chatFrame = document.getElementById('chat-frame');
+
+            function updateChargingStatus(isCharging) {
+                if (isCharging) {
+                    statusMessage.textContent = 'You are connected to the chat room.';
+                    chatFrame.style.display = 'block';
+                } else {
+                    statusMessage.textContent = 'Chat is only available when your device is charging.';
+                    chatFrame.style.display = 'none';
+                }
+            }
+
+            // Check charging status using the Battery Status API
+            if ('getBattery' in navigator) {
+                navigator.getBattery().then(function(battery) {
+                    updateChargingStatus(battery.charging);
+                    battery.addEventListener('chargingchange', function() {
+                        updateChargingStatus(battery.charging);
+                    });
+                });
+            } else {
+                statusMessage.textContent = 'Battery Status API not supported on this device.';
+                chatFrame.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
