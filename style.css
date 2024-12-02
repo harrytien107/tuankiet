@@ -190,4 +190,8 @@ a {
     width: 90%;
   }
 }
-
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

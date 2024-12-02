@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Tuấn Kiệt là một bác sĩ vô lăng"> <!-- CAN EDIT -->
-  <meta property="og:image" content="/images/round-logo.png"> <!-- CAN EDIT -->
-  <meta property="og:description" content="Chào, đây là web của bác sĩ Tuấn Kiệt, it is I:]"> <!-- CAN EDIT -->
-  <meta name="theme-color" content="#0079F2"> <!-- CAN EDIT (use same value as the --button-primary-default variable in style.css) -->
 
-  <meta name="description" content="Chào, đây là web của bác sĩ Tuấn Kiệt, it is I:]">
-  
-  <title>Tuấn Kiệt là bác sĩ vô lăng!</title>
-  <link rel="shortcut icon" href="images/round-logo.png">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Tuấn Kiệt là một bác sĩ vô lăng">
+    <!-- CAN EDIT -->
+    <meta property="og:image" content="/images/round-logo.png">
+    <!-- CAN EDIT -->
+    <meta property="og:description" content="Chào, đây là web của bác sĩ Tuấn Kiệt, it is I:]">
+    <!-- CAN EDIT -->
+    <meta name="theme-color" content="#0079F2">
+    <!-- CAN EDIT (use same value as the --button-primary-default variable in style.css) -->
+
+    <meta name="description" content="Chào, đây là web của bác sĩ Tuấn Kiệt, it is I:]">
+
+    <title>Tuấn Kiệt là bác sĩ vô lăng!</title>
+    <link rel="shortcut icon" href="/images/round-logo.png">
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <div class="card">
-    <div class="top">
-      <div class="logo-wrapper">
-        <img src="images/round-logo.png"> <!-- CAN EDIT -->
-      </div>
-  
-      <div class="text">
-        <!-- CAN EDIT -->
-        <h1>TUẤN KIỆT</h1>
-        
-        <!-- CAN EDIT -->
-        <p>Chào là tôi Tuấn Kiệt🤙</p>
-        <p>Tôi thích khám vô lăng!!!!!!<p>
-      </div>
-    </div>
+    <div class="card">
+        <div class="top">
+            <div class="logo-wrapper">
+                <img src="/images/round-logo.png">
+                <!-- CAN EDIT -->
+            </div>
 
-    <!-- CAN EDIT -->
-    <!-- <div class="socials">
+            <div class="text">
+                <!-- CAN EDIT -->
+                <h1>TUẤN KIỆT</h1>
+
+                <!-- CAN EDIT -->
+                <p>Chào là tôi Tuấn Kiệt🤙</p>
+                <p>Tôi thích khám vô lăng!!!!!!
+                    <p>
+            </div>
+        </div>
+
+        <!-- CAN EDIT -->
+        <!-- <div class="socials">
       <a href="mailto:s4il.is.a.dev@gmail.com"> 
         <button class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -78,8 +85,8 @@
       </a>
     </div> -->
 
-    <!-- CAN EDIT -->
-    <!-- <div class="buttons">
+        <!-- CAN EDIT -->
+        <!-- <div class="buttons">
       <a href="/creations/"> 
         <button class="primary">My Creations</button>
       </a>
@@ -94,6 +101,44 @@
     </div>       
   </div> -->
 
-  <script src="script.js"></script>
+        <script src="script.js"></script>
+        <!-- Code injected by live-server -->
+        <script>
+            // <![CDATA[  <-- For SVG support
+            if ('WebSocket' in window) {
+                (function() {
+                    function refreshCSS() {
+                        var sheets = [].slice.call(document.getElementsByTagName("link"));
+                        var head = document.getElementsByTagName("head")[0];
+                        for (var i = 0; i < sheets.length; ++i) {
+                            var elem = sheets[i];
+                            var parent = elem.parentElement || head;
+                            parent.removeChild(elem);
+                            var rel = elem.rel;
+                            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                            }
+                            parent.appendChild(elem);
+                        }
+                    }
+                    var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                    var address = protocol + window.location.host + window.location.pathname + '/ws';
+                    var socket = new WebSocket(address);
+                    socket.onmessage = function(msg) {
+                        if (msg.data == 'reload') window.location.reload();
+                        else if (msg.data == 'refreshcss') refreshCSS();
+                    };
+                    if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                        console.log('Live reload enabled.');
+                        sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                    }
+                })();
+            } else {
+                console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+            }
+            // ]]>
+        </script>
 </body>
+
 </html>
